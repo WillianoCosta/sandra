@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SANDRA REGINA DESTAQUE — Decorações de Festas</title>
+  <meta name="description" content="Decorações personalizadas para aniversários, casamentos, batizados e eventos corporativos. Sandra Regina — destaque em beleza, estilo e carinho." />
+  <!-- Google Fonts (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">SANDRA REGINA <span class="brand-accent">DESTAQUE</span></div>
+          <div class="subtitle">Decorações | Eventos | Personalização</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal" class="main-nav">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="cta" href="#contato">Orçamento</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <span class="kicker">Decoração com carinho</span>
+        <h1>Sandra Regina Destaque — transformando momentos em memórias</h1>
+        <p class="lead">Projetos personalizados para aniversários infantis, festas de 15 anos, casamentos, batizados e eventos corporativos. Ambientação, painéis, mesas temáticas, balloons e coordenação no dia do evento.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contato" role="button">Peça um orçamento</a>
+          <a class="btn-secondary" href="#galeria">Ver portfólio</a>
+        </div>
+      </div>
+
+      <div class="hero-media" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" alt="Decoração de festa elegante">
+      </div>
+    </section>
+
+    <section id="servicos">
+      <h2>Nossos serviços</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Decoração completa</h3>
+          <p>Ambientação do local, montagem de painéis, cenografia temática e coordenação no dia.</p>
+        </div>
+        <div class="card">
+          <h3>Mesas temáticas & bolos cenográficos</h3>
+          <p>Mesas personalizadas para cada tema, com fornecedores de confiança.</p>
+        </div>
+        <div class="card">
+          <h3>Balloon art & lettering</h3>
+          <p>Arranjos com balões, arco orgânico, letras e sinalização personalizada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <div class="gallery" id="gallery">
+        <img src="https://images.unsplash.com/photo-1508614999368-9260051296f3?q=80&w=800&auto=format&fit=crop" alt="Exemplo 1" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=800&auto=format&fit=crop" alt="Exemplo 2" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800&auto=format&fit=crop" alt="Exemplo 3" tabindex="0">
+      </div>
+    </section>
+
+    <section id="depoimentos">
+      <h2>Depoimentos</h2>
+      <div class="testimonials">
+        <blockquote>
+          "Contratamos a Sandra para o aniversário da nossa filha — tudo perfeito, atenção aos detalhes e pontualidade." <br><strong>— Mariana R.</strong>
+        </blockquote>
+        <blockquote>
+          "Equipe profissional e criativa. O salão ficou incrível. Obrigado por transformar nosso sonho em realidade." <br><strong>— João P.</strong>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Peça um orçamento</h2>
+      <form id="contactForm" novalidate>
+        <label for="name">Nome</label>
+        <input id="name" name="name" required placeholder="Seu nome">
+
+        <label for="email">E‑mail</label>
+        <input id="email" name="email" type="email" required placeholder="contato@exemplo.com">
+
+        <label for="tel">Telefone / WhatsApp</label>
+        <input id="tel" name="tel" placeholder="(xx) xxxxx-xxxx">
+
+        <label for="message">Descrição do evento</label>
+        <textarea id="message" name="message" rows="5" placeholder="Data, tipo de evento, número de convidados, local..."></textarea>
+
+        <button class="btn" type="submit">Enviar pedido</button>
+        <div id="formMsg" class="form-msg" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">SR</div>
+        <div class="footer-text">© <span id="year"></span> Sandra Regina Destaque — Todos os direitos reservados</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="fab" id="whatsappBtn" aria-label="Abrir WhatsApp">💬</button>
+
+  <!-- Modal gallery -->
+  <div class="modal" id="modal" role="dialog" aria-hidden="true">
+    <img id="modalImg" alt="Imagem ampliada">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

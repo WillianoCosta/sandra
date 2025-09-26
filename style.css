@@ -1,0 +1,105 @@
+:root{
+  --brand:#00A693;
+  --accent:#FFB86B;
+  --muted:#6b7280;
+  --bg:#ffffff;
+  --card:#f8fafc;
+  --radius:12px;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Reset & basics */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg, #fff 0%, #fbfbff 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:60px;
+}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(16,24,40,0.04);
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:56px;height:56px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),#4f46e5);
+  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+  font-family:'Playfair Display',serif;font-size:18px;box-shadow:0 6px 18px rgba(124,77,255,0.16)
+}
+.brand-title{font-weight:700}
+.brand-accent{color:var(--brand)}
+.subtitle{font-size:13px;color:var(--muted)}
+
+.main-nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+.main-nav a{font-weight:500;color:var(--muted)}
+.actions{display:flex;gap:12px;align-items:center}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;padding:48px 0}
+.kicker{display:inline-block;background:linear-gradient(90deg, rgba(124,77,255,0.12),rgba(255,184,107,0.06));padding:6px 10px;border-radius:999px;color:var(--brand);font-weight:600;font-size:13px}
+.hero-inner h1{font-family:'Playfair Display',serif;font-size:36px;margin:0}
+.lead{margin:0;color:var(--muted);max-width:62ch}
+.hero-media img{width:100%;border-radius:12px;box-shadow:0 20px 40px rgba(15,23,42,0.06)}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--brand);color:white;padding:10px 16px;border-radius:10px;border:none;font-weight:600}
+.btn-secondary{padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:transparent;font-weight:600}
+.cta{background:var(--brand);color:white;padding:10px 14px;border-radius:10px;font-weight:600}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;display:block}
+
+/* Testimonials & Contact */
+.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
+blockquote{background:#fff;padding:18px;border-radius:12px;border-left:4px solid var(--accent)}
+form input, form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ee;font-size:14px;margin-bottom:10px}
+form label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+.form-msg{margin-top:8px;color:var(--muted);font-size:13px}
+
+/* Footer */
+footer{padding:28px 0;margin-top:28px}
+.footer-content{display:flex;gap:12px;align-items:center;justify-content:space-between}
+
+/* Floating contact button */
+.fab{position:fixed;right:18px;bottom:18px;background:var(--brand);color:white;border-radius:999px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(124,77,255,0.25);z-index:60}
+
+/* Modal gallery */
+.modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;padding:24px;z-index:100;opacity:0;pointer-events:none;transition:all 200ms}
+.modal.open{opacity:1;pointer-events:all}
+.modal img{max-width:90%;max-height:80%;border-radius:10px}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:18px}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .testimonials{grid-template-columns:1fr}
+  .hero-inner h1{font-size:30px}
+}
+@media (max-width:640px){
+  .main-nav{display:none}
+  .logo{width:48px;height:48px}
+  .container{padding:16px}
+  .services{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .hero-inner h1{font-size:24px}
+}
