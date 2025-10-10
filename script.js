@@ -1,70 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Atualiza ano no rodapé
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
 
-  // Form handling (simulado)
-  const form = document.getElementById('contactForm');
-  const formMsg = document.getElementById('formMsg');
-  if (form) {
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if(!name || !email){
-        formMsg.style.color = 'red';
-        formMsg.textContent = 'Por favor preencha nome e e‑mail.';
-        return;
-      }
-      formMsg.style.color = 'green';
-      formMsg.textContent = 'Pedido enviado! Vamos responder em até 24 horas. (Simulação)';
-      form.reset();
-      setTimeout(()=> formMsg.style.color = 'var(--muted)', 3000);
-    });
-  }
+    // Menu de Navegação Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-  // Gallery modal
-  const gallery = document.getElementById('gallery');
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
-
-  if (gallery && modal && modalImg) {
-    gallery.addEventListener('click', function(e){
-      const img = e.target.closest('img');
-      if(!img) return;
-      modalImg.src = img.src;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        // Alterna o ícone entre barras e 'X'
+        const icon = menuToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
 
-    modal.addEventListener('click', ()=> {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
     });
 
-    // Accessibility: Enter to open images when focused
-    gallery.querySelectorAll('img').forEach(img=>{
-      img.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') img.click(); });
+    // Adiciona um fundo ao header ao rolar a página
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'var(--background-color)';
+        } else {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.8)';
+        }
     });
-  }
 
-  // WhatsApp quick action (altere para o número real)
-  const whatsappBtn = document.getElementById('whatsappBtn');
-  if (whatsappBtn) {
-    whatsappBtn.addEventListener('click', ()=> {
-      window.open('https://wa.me/5511999999999?text=Ol%C3%A1%20Sandra%2C%20gostaria%20de%20um%20or%C3%A7amento','_blank');
-    });
-  }
-
-  // Smooth scroll for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', function(e){
-      const href = this.getAttribute('href');
-      if(href.length > 1){
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  });
 });
