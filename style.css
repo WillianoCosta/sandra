@@ -1,106 +1,305 @@
-:root{
-  --brand:#00A693;
-  --accent:#FFB86B;
-  --muted:#6b7280;
-  --bg:#ffffff;
-  --card:#f8fafc;
-  --radius:12px;
-  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* --- Variáveis de Cor e Configurações Globais --- */
+:root {
+    --primary-color: #00fff0; /* Verde-água do logo */
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg-color: #1e1e1e;
+    --footer-bg-color: #000;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
 }
 
-/* Reset & basics */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:linear-gradient(180deg, #fff 0%, #fbfbff 100%);
-  color:#111827;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  padding-bottom:60px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-a{color:inherit;text-decoration:none}
 
-/* Header */
-header{
-  position:sticky;
-  top:0;
-  z-index:40;
-  background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid rgba(16,24,40,0.04);
+html {
+    scroll-behavior: smooth;
 }
-.container{max-width:1100px;margin:0 auto;padding:24px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:80px;height:80px;border-radius:80px;
-  background:#ffffff;
-  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
-  font-family:'Playfair Display',serif;font-size:18px;
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
-.logo img{width:120%;height:120%;border-radius:80px}
-.logo img background{border-radius:80px}
-.brand-title{font-weight:700}
-.brand-accent{color:var(--brand)}
 
-.main-nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
-.main-nav a{font-weight:500;color:var(--muted)}
-.actions{display:flex;gap:12px;align-items:center}
-
-/* Hero */
-.hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;padding:48px 0}
-.kicker{display:inline-block;background:linear-gradient(90deg, rgba(124,77,255,0.12),rgba(255,184,107,0.06));padding:6px 10px;border-radius:999px;color:var(--brand);font-weight:600;font-size:13px}
-.hero-inner h1{font-family:'Playfair Display',serif;font-size:36px;margin:0}
-.lead{margin:0;color:var(--muted);max-width:62ch}
-.hero-media img{width:100%;border-radius:12px;box-shadow:0 20px 40px rgba(15,23,42,0.06)}
-
-/* Buttons */
-.btn{display:inline-block;background:var(--brand);color:white;padding:10px 16px;border-radius:10px;border:none;font-weight:600}
-.btn-secondary{padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:transparent;font-weight:600}
-.cta{background:var(--brand);color:white;padding:10px 14px;border-radius:10px;font-weight:600}
-
-/* Services */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
-
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;display:block}
-
-/* Testimonials & Contact */
-.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
-blockquote{background:#fff;padding:18px;border-radius:12px;border-left:4px solid var(--accent)}
-form input, form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ee;font-size:14px;margin-bottom:10px}
-form label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
-.form-msg{margin-top:8px;color:var(--muted);font-size:13px}
-
-/* Footer */
-footer{padding:28px 0;margin-top:28px}
-.footer-content{display:flex;gap:12px;align-items:center;justify-content:space-between}
-
-/* Floating contact button */
-.fab{position:fixed;right:18px;bottom:18px;background:var(--brand);color:white;border-radius:999px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(124,77,255,0.25);z-index:60}
-
-/* Modal gallery */
-.modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;padding:24px;z-index:100;opacity:0;pointer-events:none;transition:all 200ms}
-.modal.open{opacity:1;pointer-events:all}
-.modal img{max-width:90%;max-height:80%;border-radius:10px}
-
-/* Responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:18px}
-  .services{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .testimonials{grid-template-columns:1fr}
-  .hero-inner h1{font-size:30px}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-@media (max-width:640px){
-  .main-nav{display:none}
-  .logo{width:48px;height:48px}
-  .container{padding:16px}
-  .services{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .hero-inner h1{font-size:24px}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--primary-color));
+    object-fit: contain; 
+    border-radius: 80px;
+    transition: transform 0.3s ease;
+    
+
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Seção Hero --- */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+/* --- Seção Sobre --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about-content img {
+    width: 40%;
+    max-width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Seção Serviços --- */
+.services {
+    background-color: var(--card-bg-color);
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.service-card {
+    background-color: var(--background-color);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 255, 240, 0.1);
+}
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* --- Seção Galeria --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+/* --- Seção Contato --- */
+.contact {
+    text-align: center;
+    background-color: var(--card-bg-color);
+}
+.contact p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+.contact .btn-primary {
+    display: inline-block;
+}
+
+/* --- Rodapé --- */
+.footer {
+    background-color: var(--footer-bg-color);
+    padding: 30px 0;
+    text-align: center;
+}
+.developer {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- Botão Flutuante WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-menu a {
+        margin: 15px 0;
+        padding: 10px;
+        width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    .about-content img {
+        width: 100%;
+        max-width: 350px;
+    }
 }
