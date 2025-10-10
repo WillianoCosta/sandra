@@ -72,8 +72,15 @@ body {
     object-fit: contain; 
     border-radius: 80px;
     transition: transform 0.3s ease;
-    
+}
 
+#sobre .about-content img {
+  /* Exemplo de estilos */
+  width: 100%;        /* Ajusta a largura da imagem para ocupar todo o espaço do contêiner */
+  max-width: 300px;   /* Limita a largura máxima a 300 pixels */
+  border-radius: 150px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra */
+  object-fit: cover;  /* Ajusta como a imagem se encaixa no espaço */
 }
 
 .nav-menu a {
